@@ -77,7 +77,7 @@ func totalCubes(cubes Cubes) int {
 	return total
 }
 
-func isPossibleGame(gameID int, sackConfig Cubes, picks []Cubes) bool {
+func isPossibleGame(sackConfig Cubes, picks []Cubes) bool {
 	maxPossibleCubes := totalCubes(sackConfig)
 	for _, pick := range picks {
 		// Check for color pick
@@ -113,7 +113,7 @@ func ans(input string) {
 		gameID, cubes, err := parseLine(line)
 		mustNotErr(err)
 
-		if isPossibleGame(gameID, sackConfig, cubes) {
+		if isPossibleGame(sackConfig, cubes) {
 			total += gameID
 		}
 	}
